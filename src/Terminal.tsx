@@ -5,14 +5,11 @@ import { AttachAddon } from "xterm-addon-attach";
 import axios from "axios";
 
 const socketURL = "ws://127.0.0.1:4000/socket/";
-function VscodeTerminal() {
+function WebTerminal() {
   //初始化当前系统环境，返回终端的 pid，标识当前终端的唯一性
   const initSysEnv = async (term: Terminal) =>
     await axios
-      .post("http://127.0.0.1:4000/terminal", {
-        cols: term.cols,
-        rows: term.rows,
-      })
+      .post("http://127.0.0.1:4000/terminal")
       .then((res) => res.data)
       .catch((err) => {
         throw new Error(err);
@@ -43,4 +40,4 @@ function VscodeTerminal() {
   return <div id="terminal"></div>;
 }
 
-export default VscodeTerminal;
+export default WebTerminal;

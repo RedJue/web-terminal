@@ -1,5 +1,5 @@
 {
-  "name": "vscode-terminal",
+  "name": "web-terminal",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

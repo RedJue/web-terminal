@@ -1,11 +1,11 @@
 import React from "react";
-import VscodeTerminal from "./Terminal";
+import WebTerminal from "./Terminal";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <VscodeTerminal />
+      <WebTerminal />
     </div>
   );
 }

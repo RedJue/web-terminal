@@ -3,17 +3,16 @@ const expressWs = require("express-ws");
 const pty = require("node-pty");
 const os = require("os");
 
-const shell = os.platform() === "win32" ? "powershell.exe" : "zsh";
+const shell = os.platform() === "win32" ? "powershell.exe" : "bash";
 const app = express();
 expressWs(app);
 const termMap = new Map();
-function nodeEnvBind(req) {
-  const { cols, rows } = req.params;
+function nodeEnvBind() {
   //绑定当前系统 node 环境
   const term = pty.spawn(shell, ["--login"], {
     name: "xterm-color",
-    cols: cols || 80,
-    rows: rows || 24,
+    cols: 80,
+    rows: 24,
     cwd: process.env.HOME,
     env: process.env,
   });
